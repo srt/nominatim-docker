@@ -42,6 +42,7 @@ COPY nominatim.conf /etc/apache2/sites-enabled/000-default.conf
 
 # Load initial data
 RUN curl http://www.nominatim.org/data/country_grid.sql.gz > /app/src/data/country_osm_grid.sql.gz
+RUN chown -R postgres:postgres /app/src/build/
 
 EXPOSE 5432
 EXPOSE 8080
